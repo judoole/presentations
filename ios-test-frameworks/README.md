@@ -9,3 +9,7 @@ Frameworks that tingled my interest:
 * [KIF](https://github.com/square/KIF)
 * [Frank](http://testingwithfrank.com/)
 * Jenkins plugins
+
+The presentaion is written with [remark.js](https://github.com/gnab/remark).
+
+And it's in norwegian.
