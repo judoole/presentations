@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		777C9DEE1662B7E800B8C94E /* OCHamcrestIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 777C9DED1662B7E800B8C94E /* OCHamcrestIOS.framework */; };
 		777C9DF01662B81B00B8C94E /* OCHamcrestIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 777C9DED1662B7E800B8C94E /* OCHamcrestIOS.framework */; };
+		777C9E121662D1CB00B8C94E /* OCMockitoIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 777C9E111662D1CB00B8C94E /* OCMockitoIOS.framework */; };
 		77B19EDB16604FB30098DAC5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77B19EDA16604FB30098DAC5 /* UIKit.framework */; };
 		77B19EDD16604FB30098DAC5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77B19EDC16604FB30098DAC5 /* Foundation.framework */; };
 		77B19EDF16604FB30098DAC5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77B19EDE16604FB30098DAC5 /* CoreGraphics.framework */; };
@@ -22,12 +23,11 @@
 		77B19EFA16604FB40098DAC5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77B19EDA16604FB30098DAC5 /* UIKit.framework */; };
 		77B19EFB16604FB40098DAC5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77B19EDC16604FB30098DAC5 /* Foundation.framework */; };
 		77B19F0316604FB40098DAC5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 77B19F0116604FB40098DAC5 /* InfoPlist.strings */; };
-		77B19F0616604FB40098DAC5 /* HamcrestShowMe.m in Sources */ = {isa = PBXBuildFile; fileRef = 77B19F0516604FB40098DAC5 /* HamcrestShowMe.m */; };
+		77B19F0616604FB40098DAC5 /* ShowMeHamcrest.m in Sources */ = {isa = PBXBuildFile; fileRef = 77B19F0516604FB40098DAC5 /* ShowMeHamcrest.m */; };
 		B4B0D164D4657E68414E6282 /* Speedboat.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B0D839BA92175D3D4F9D74 /* Speedboat.m */; };
 		B4B0D5962C0B80F0010BD249 /* Vehicle.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B0D42924284B0314AFA27E /* Vehicle.m */; };
 		B4B0D5A2D1A50706C333174D /* Mercedes.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B0D9462E4EE21BBCFF4F9A /* Mercedes.m */; };
-		B4B0D7BA47669C9E622FE095 /* Speedboat.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B0D839BA92175D3D4F9D74 /* Speedboat.m */; };
-		B4B0DB07B23FB0E683EFC482 /* HasWheels.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B0D36D27E3C5E2F91FB0D8 /* HasWheels.m */; };
+		B4B0D6129428319229F3E975 /* ShowMeMockito.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B0D33FAF93EDC6B44204A7 /* ShowMeMockito.m */; };
 		B4B0DE879AC30F93189A539F /* HasWheels.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B0D36D27E3C5E2F91FB0D8 /* HasWheels.m */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +43,7 @@
 
 /* Begin PBXFileReference section */
 		777C9DED1662B7E800B8C94E /* OCHamcrestIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCHamcrestIOS.framework; path = "../../../../../Downloads/OCHamcrest-1.8/OCHamcrestIOS.framework"; sourceTree = "<group>"; };
+		777C9E111662D1CB00B8C94E /* OCMockitoIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCMockitoIOS.framework; path = "../../../../../Downloads/OCMockito-0.23/OCMockitoIOS.framework"; sourceTree = "<group>"; };
 		77B19ED616604FB30098DAC5 /* code.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = code.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77B19EDA16604FB30098DAC5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		77B19EDC16604FB30098DAC5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -60,8 +61,9 @@
 		77B19EF816604FB40098DAC5 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		77B19F0016604FB40098DAC5 /* codeTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "codeTests-Info.plist"; sourceTree = "<group>"; };
 		77B19F0216604FB40098DAC5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		77B19F0416604FB40098DAC5 /* HamcrestShowMe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HamcrestShowMe.h; sourceTree = "<group>"; };
-		77B19F0516604FB40098DAC5 /* HamcrestShowMe.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HamcrestShowMe.m; sourceTree = "<group>"; };
+		77B19F0416604FB40098DAC5 /* ShowMeHamcrest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShowMeHamcrest.h; sourceTree = "<group>"; };
+		77B19F0516604FB40098DAC5 /* ShowMeHamcrest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShowMeHamcrest.m; sourceTree = "<group>"; };
+		B4B0D33FAF93EDC6B44204A7 /* ShowMeMockito.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowMeMockito.m; sourceTree = "<group>"; };
 		B4B0D36D27E3C5E2F91FB0D8 /* HasWheels.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HasWheels.m; sourceTree = "<group>"; };
 		B4B0D419532AF8465099861A /* Speedboat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Speedboat.h; sourceTree = "<group>"; };
 		B4B0D42924284B0314AFA27E /* Vehicle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Vehicle.m; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 		B4B0D5778121DD5EDE96E96D /* Vehicle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vehicle.h; sourceTree = "<group>"; };
 		B4B0D740DE6D127E49278781 /* HasWheels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HasWheels.h; sourceTree = "<group>"; };
 		B4B0D839BA92175D3D4F9D74 /* Speedboat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Speedboat.m; sourceTree = "<group>"; };
+		B4B0D8863A63B18D0A847119 /* ShowMeMockito.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowMeMockito.h; sourceTree = "<group>"; };
 		B4B0D9462E4EE21BBCFF4F9A /* Mercedes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mercedes.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -92,6 +95,7 @@
 				77B19EFA16604FB40098DAC5 /* UIKit.framework in Frameworks */,
 				77B19EFB16604FB40098DAC5 /* Foundation.framework in Frameworks */,
 				777C9DF01662B81B00B8C94E /* OCHamcrestIOS.framework in Frameworks */,
+				777C9E121662D1CB00B8C94E /* OCMockitoIOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,6 +105,7 @@
 		777C9BD61662A28200B8C94E /* Externals */ = {
 			isa = PBXGroup;
 			children = (
+				777C9E111662D1CB00B8C94E /* OCMockitoIOS.framework */,
 				777C9DED1662B7E800B8C94E /* OCHamcrestIOS.framework */,
 			);
 			name = Externals;
@@ -172,9 +177,11 @@
 		77B19EFE16604FB40098DAC5 /* codeTests */ = {
 			isa = PBXGroup;
 			children = (
-				77B19F0416604FB40098DAC5 /* HamcrestShowMe.h */,
-				77B19F0516604FB40098DAC5 /* HamcrestShowMe.m */,
+				77B19F0416604FB40098DAC5 /* ShowMeHamcrest.h */,
+				77B19F0516604FB40098DAC5 /* ShowMeHamcrest.m */,
 				77B19EFF16604FB40098DAC5 /* Supporting Files */,
+				B4B0D33FAF93EDC6B44204A7 /* ShowMeMockito.m */,
+				B4B0D8863A63B18D0A847119 /* ShowMeMockito.h */,
 			);
 			path = codeTests;
 			sourceTree = "<group>";
@@ -310,9 +317,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				77B19F0616604FB40098DAC5 /* HamcrestShowMe.m in Sources */,
-				B4B0D7BA47669C9E622FE095 /* Speedboat.m in Sources */,
-				B4B0DB07B23FB0E683EFC482 /* HasWheels.m in Sources */,
+				77B19F0616604FB40098DAC5 /* ShowMeHamcrest.m in Sources */,
+				B4B0D6129428319229F3E975 /* ShowMeMockito.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -436,6 +442,7 @@
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
 					"\"$(SRCROOT)/../../../../../Downloads/OCHamcrest-1.8\"",
+					"\"$(SRCROOT)/../../../../../Downloads/OCMockito-0.23\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "code/code-Prefix.pch";
@@ -455,6 +462,7 @@
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
 					"\"$(SRCROOT)/../../../../../Downloads/OCHamcrest-1.8\"",
+					"\"$(SRCROOT)/../../../../../Downloads/OCMockito-0.23\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "code/code-Prefix.pch";
