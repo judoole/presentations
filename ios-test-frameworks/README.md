@@ -8,6 +8,7 @@ Frameworks that tingled my interest:
 * [Klee](http://klee.llvm.org/)
 * [KIF](https://github.com/square/KIF)
 * [Frank](http://testingwithfrank.com/)
+* [FoneMonkey](https://www.gorillalogic.com/book/fonemonkey-setup-guide)
 * Jenkins plugins
 
 The presentaion is written with [remark.js](https://github.com/gnab/remark).
