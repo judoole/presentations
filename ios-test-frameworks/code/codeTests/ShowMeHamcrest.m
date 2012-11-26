@@ -7,6 +7,7 @@
 #import <OCHamcrestIOS/OCHamcrestIOS.h>
 #import "HasWheelsMatcher.h"
 #import "TheMatcher.h"
+#import "FilterMatcher.h"
 
 
 @implementation ShowMeHamcrest
@@ -25,7 +26,7 @@
 }
 
 - (void)test_numbers {
-    assertThat(@3, greaterThan(@2));
+    assertThat(@3, allOf(greaterThan(@2), lessThan(@10), nil));
 }
 
 - (void)test_arrays {
@@ -47,11 +48,20 @@
 }
 
 - (void)test_production_code_matching {
-    if (the(@"A String", equalTo(@"A String"))){
-    }else{
-        STFail(@"should have failed");
-    }
+    bool *isSupermanEqual = the(@"Superman", is(equalTo(@"Superman")));
+    assertThatBool(isSupermanEqual, equalToBool(true));
 
+    bool *supermanNotEqualToLex = the(@"Superman", isNot(equalTo(@"Lex Luthor")));
+    assertThatBool(supermanNotEqualToLex, equalToBool(true));
+}
+
+- (void)test_production_code_filtering {
+    NSArray *array = [NSArray arrayWithObjects:@"a", @"b", @"c", nil];
+    NSArray *filteredArray = filter(array, equalTo(@"a"));
+
+    assertThat(filteredArray, allOf(hasItem(@"a"),
+            hasCount(equalToUnsignedInteger(1)),
+            nil));
 }
 
 @end

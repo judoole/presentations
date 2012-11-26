@@ -29,7 +29,7 @@
 		B4B0D5962C0B80F0010BD249 /* Vehicle.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B0D42924284B0314AFA27E /* Vehicle.m */; };
 		B4B0D5A2D1A50706C333174D /* Mercedes.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B0D9462E4EE21BBCFF4F9A /* Mercedes.m */; };
 		B4B0D6129428319229F3E975 /* ShowMeMockito.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B0D33FAF93EDC6B44204A7 /* ShowMeMockito.m */; };
-		B4B0DB7B67A34C4986403F43 /* TheMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B0D91042C68FFA800C7486 /* TheMatcher.m */; };
+		B4B0DB79E794D3CAEC5443B4 /* FilterMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B0D41D404194FF4692F061 /* FilterMatcher.m */; };
 		B4B0DE879AC30F93189A539F /* HasWheelsMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B0D36D27E3C5E2F91FB0D8 /* HasWheelsMatcher.m */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +68,7 @@
 		B4B0D33FAF93EDC6B44204A7 /* ShowMeMockito.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowMeMockito.m; sourceTree = "<group>"; };
 		B4B0D36D27E3C5E2F91FB0D8 /* HasWheelsMatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HasWheelsMatcher.m; sourceTree = "<group>"; };
 		B4B0D419532AF8465099861A /* Speedboat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Speedboat.h; sourceTree = "<group>"; };
+		B4B0D41D404194FF4692F061 /* FilterMatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterMatcher.m; sourceTree = "<group>"; };
 		B4B0D42924284B0314AFA27E /* Vehicle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Vehicle.m; sourceTree = "<group>"; };
 		B4B0D502F3995427AF9680BA /* Mercedes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mercedes.h; sourceTree = "<group>"; };
 		B4B0D5778121DD5EDE96E96D /* Vehicle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vehicle.h; sourceTree = "<group>"; };
@@ -77,6 +78,7 @@
 		B4B0D91042C68FFA800C7486 /* TheMatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TheMatcher.m; sourceTree = "<group>"; };
 		B4B0D9462E4EE21BBCFF4F9A /* Mercedes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mercedes.m; sourceTree = "<group>"; };
 		B4B0DF0369644B168B2E9C20 /* TheMatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TheMatcher.h; sourceTree = "<group>"; };
+		B4B0DFC6D8373C70CE025FB5 /* FilterMatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterMatcher.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +164,8 @@
 				B4B0D740DE6D127E49278781 /* HasWheelsMatcher.h */,
 				B4B0D91042C68FFA800C7486 /* TheMatcher.m */,
 				B4B0DF0369644B168B2E9C20 /* TheMatcher.h */,
+				B4B0D41D404194FF4692F061 /* FilterMatcher.m */,
+				B4B0DFC6D8373C70CE025FB5 /* FilterMatcher.h */,
 			);
 			path = code;
 			sourceTree = "<group>";
@@ -317,6 +321,7 @@
 				B4B0D164D4657E68414E6282 /* Speedboat.m in Sources */,
 				B4B0DE879AC30F93189A539F /* HasWheelsMatcher.m in Sources */,
 				B4B0D58A6E515D12D57F5F94 /* TheMatcher.m in Sources */,
+				B4B0DB79E794D3CAEC5443B4 /* FilterMatcher.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,7 +331,6 @@
 			files = (
 				77B19F0616604FB40098DAC5 /* ShowMeHamcrest.m in Sources */,
 				B4B0D6129428319229F3E975 /* ShowMeMockito.m in Sources */,
-				B4B0DB7B67A34C4986403F43 /* TheMatcher.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
