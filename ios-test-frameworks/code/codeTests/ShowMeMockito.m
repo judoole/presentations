@@ -5,7 +5,7 @@
 
 #define MOCKITO_SHORTHAND
 #import <OCMockitoIOS/OCMockitoIOS.h>
-#import "HasWheels.h"
+#import "HasWheelsMatcher.h"
 
 @implementation ShowMeMockito
 -(void)test_mockito_the_wheels_off{

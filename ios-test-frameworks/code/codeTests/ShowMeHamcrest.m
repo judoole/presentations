@@ -5,7 +5,8 @@
 #define HC_SHORTHAND
 
 #import <OCHamcrestIOS/OCHamcrestIOS.h>
-#import "HasWheels.h"
+#import "HasWheelsMatcher.h"
+#import "TheMatcher.h"
 
 
 @implementation ShowMeHamcrest
@@ -43,6 +44,14 @@
 
     assertThat(car, hasWheels());
     assertThat(boat, isNot(hasWheels()));
+}
+
+- (void)test_production_code_matching {
+    if (the(@"A String", equalTo(@"A String"))){
+    }else{
+        STFail(@"should have failed");
+    }
+
 }
 
 @end

@@ -1,6 +1,6 @@
 #import <OCHamcrestIOS/OCHamcrestIOS.h>
 
-@interface HasWheels : HCBaseMatcher
+@interface HasWheelsMatcher : HCBaseMatcher
 
 + (id)hasWheels;
 

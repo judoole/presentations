@@ -1,9 +1,9 @@
-#import "HasWheels.h"
+#import "HasWheelsMatcher.h"
 
 #import <OCHamcrest/HCDescription.h>
 
 
-@implementation HasWheels
+@implementation HasWheelsMatcher
 
 + (id)hasWheels {
     return [[self alloc] init];
@@ -20,5 +20,5 @@
 @end
 
 id <HCMatcher> hasWheels() {
-    return [HasWheels hasWheels];
+    return [HasWheelsMatcher hasWheels];
 }
