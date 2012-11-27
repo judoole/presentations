@@ -3,7 +3,7 @@
 <!DOCTYPE html>
   <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <title>Remark</title>
+    <title>iOS Test-Frameworks</title>
     <script src="https://github.com/downloads/gnab/remark/remark-0.4.2.min.js" type="text/javascript">
       {"highlightStyle": "monokai"}
     </script>
@@ -125,55 +125,499 @@ class: center, middle, inverse
 #Test, test, test
 #iOS, iOS, iOS
 ---
+#OCHamcrest
+---
 layout: false
 .left-column[
   ##What?
+
+.footnote[OCHamcrest]
 ]
 .right-column[
-  A library of "matcher" objects that let you declare rules for whether a given object matches the criteria or not. 
+Anagram for Matchers
 
-  And a framework for writing your own matchers.
+Ported to Java, C++, Objective-C, Python, ActionScript 3, PHP, JavaScript and Erlang.
+
+### History
+Bad error messages
+```objectivecO
+assert(x == y); 
+```
+Too many macros
+```objectivec
+STAssertEquals(x, y);
+STAssertTrue(x == y);
+```
+Bliss
+```objectivec
+assertThat(x, equalTo(y));
+```
 ]
 ---
 .left-column[
   ## What?
-  ## Why?
+  ## Syntax?
+.footnote[OCHamcrest]
 ]
 .right-column[
+String
+```objectivec
 assertThat(@"Hello world", containsString(@"world"));
+assertThat(@3, allOf(greaterThan(@2), lessThan(@10), nil));
+```
+Array
+```objectivec
+NSArray *array = [NSArray arrayWithObjects:@"a", @"b", @"c", nil];
 
+assertThat(array, hasItem(@"a"));
+assertThat(array, hasItem(equalToIgnoringCase(@"A")));
+assertThat(array, hasItems(@"b", @"a", nil));
+```
+Object
+```objectivec
+Mercedes *mercedes = [[Mercedes alloc] init];
 
-
-.footnote[.red[*] You probably want to convert existing slideshows as well]
+assertThat(mercedes, instanceOf([Mercedes class]));
+assertThat(mercedes, hasProperty(@"name", @"Mercedes-Benz W169"));
+```
 ]
 ---
 .left-column[
   ## What?
-  ## Why?
-  ## Add?
+  ## Syntax?
+.footnote[OCHamcrest]
 ]
 .right-column[
-Legg til OCHamcrest
+Superman == Clark Kent. They are the same!
+
+```objectivec
+assertThat(theBiscuit, equalTo(myBiscuit));
+assertThat(theBiscuit, is(equalTo(myBiscuit)));
+assertThat(theBiscuit, is(myBiscuit));
+```
+
+<br>Lex Luthor != Superman && Lex Luthor != Clark Kent
+```objectivec
+assertThat(array, isNot(hasItem(@"X")));
+assertThat(@3, isNot(allOf(greaterThan(@10), lessThan(@0), nil)));
+```
 ]
 ---
 .left-column[
   ## What?
-  ## Why?
-  ## Add?
-  ## Extra?
+  ## Syntax?
+  ## Extend?
+.footnote[OCHamcrest]
 ]
 .right-column[
-Bruk OCHamcrest i produksjonskode. Matchers øker lesbarheten betraktelig i mange tilfeller.
+Create your own!
+
+```objectivec
+Vehicle *car = [[Mercedes alloc] init];
+Vehicle *boat = [[Speedboat alloc] init];
+
+assertThat(car, hasProperty(@"numberOfWheels", greaterThan(@0)));
+
+//Nicer?
+assertThat(car, hasWheels());
+assertThat(boat, isNot(hasWheels()));
+```
 ]
+---
+.left-column[
+  ## What?
+  ## Syntax?
+  ## Extend?
+.footnote[OCHamcrest]
+]
+.right-column[
+HasWheelsMatcher.h
+```objectivec
+#import <OCHamcrestIOS/OCHamcrestIOS.h>
+@interface HasWheelsMatcher : HCBaseMatcher
++ (id)hasWheels;
+@end
+
+OBJC_EXPORT id<HCMatcher> hasWheels(void);
+```
+]
+---
+.left-column[
+  ## What?
+  ## Syntax?
+  ## Extend?
+.footnote[OCHamcrest]
+]
+.right-column[
+HasWheelsMatcher.m
+```objectivec
+#import "HasWheelsMatcher.h"
+#import <OCHamcrest/HCDescription.h>
+
+@implementation HasWheelsMatcher
++ (id)hasWheels {
+    return [[self alloc] init];
+}
+
+- (BOOL)matches:(id)item {
+    return [[HCHasProperty hasProperty:@"numberOfWheels" 
+                           value:HC_greaterThan(@0)] matches:item];
+}
+
+- (void)describeTo:(id <HCDescription>)description {
+    [description appendText:@"wheels on Vehicle"];
+}
+@end
+
+id <HCMatcher> hasWheels() {
+    return [HasWheelsMatcher hasWheels];
+}
+```
+]    
+---
+.left-column[
+  ## What?
+  ## Syntax?
+  ## Extend?
+.footnote[OCHamcrest]
+]
+.right-column[
+Descriptive error message
+```objectivec
+Vehicle *car = [[Mercedes alloc] init];
+assertThat(car, isNot(hasWheels()));
+```
+Result
+```
+Expected not wheels on Vehicle, 
+  but was <Mercedes: Name=Mercedes-Benz W169, NumberOfWheels=4>
+```
+
+<br>Mercedes.m
+```objectivec
+- (NSString *)description {
+    return [NSString stringWithFormat: 
+                @"Mercedes: Name=%@, NumberOfWheels=%@", 
+                [self name], 
+                [self numberOfWheels]];
+}
+```
+]
+---
+.left-column[
+  ## What?
+  ## Syntax?
+  ## Extend?
+  ## More???
+.footnote[OCHamcrest]
+]
+.right-column[
+### A match made in production code
+
+```objectivec
+bool *isSupermanEqual = the(@"Superman", is(equalTo(@"Superman")));
+assertThatBool(isSupermanEqual, equalToBool(true));
+
+bool *supermanNotEqualToLex = the(@"Superman", 
+                             isNot(equalTo(@"Lex Luthor")));
+assertThatBool(supermanNotEqualToLex, equalToBool(true));
+```
+
+```objectivec
+if(the(@"Superman", endsWith("man"))){
+	NSLog(@"If the end is good");
+}
+```
+]
+---
+.left-column[
+  ## What?
+  ## Syntax?
+  ## Extend?
+  ## More???
+.footnote[OCHamcrest]
+]
+.right-column[
+TheMatcher.h
+```objectivec
+@interface TheMatcher : NSObject
+@end
+
+OBJC_EXPORT bool the(id actual, id <HCMatcher> matcher);
+```
+
+TheMatcher.m
+```objectivec
+#import <OCHamcrestIOS/OCHamcrestIOS.h>
+#import "TheMatcher.h"
+
+@implementation TheMatcher {
+}
+@end
+
+bool the(id actual, id <HCMatcher> matcher) {
+    return [matcher matches:actual];
+}
+```
+]
+---
+.left-column[
+  ## What?
+  ## Syntax?
+  ## Extend?
+  ## More???
+.footnote[OCHamcrest]
+]
+.right-column[
+### A filter made in production
+```objectivec
+NSArray *array = [NSArray arrayWithObjects:@"a", @"b", @"c", nil];
+NSArray *filteredArray = filter(array, equalTo(@"a"));
+
+assertThat(filteredArray, allOf(hasItem(@"a"),
+            hasCount(equalToUnsignedInteger(1)),
+            nil));
+```
+]
+---
+.left-column[
+  ## What?
+  ## Syntax?
+  ## Extend?
+  ## More???
+.footnote[OCHamcrest]
+]
+.right-column[
+FilterMatcher.h
+```objectivec
+@protocol HCMatcher;
+
+@interface FilterMatcher : NSObject
+@end
+
+OBJC_EXPORT NSArray *filter(id actual, id <HCMatcher> matcher);
+```
+FilterMatcher.m
+```objectivec
+#import <OCHamcrestIOS/OCHamcrestIOS.h>
+#import "FilterMatcher.h"
+
+@implementation FilterMatcher {
+}
+
+@end
+
+NSArray *filter(id actual, id <HCMatcher> matcher){
+    NSMutableArray *mutableArray = [[NSMutableArray alloc] init];
+    for(id object in actual){
+        if ([matcher matches:object]){
+			[mutableArray addObject:object];
+		}
+    }
+    return mutableArray;
+}
+```
+]
+---
+.left-column[
+  ## What?
+  ## Syntax?
+  ## Extend?
+  ## More???
+  ## Add???
+.footnote[OCHamcrest]
+]
+.right-column[
+### Submoduling
+1=> ```git submodule add git@github.com:hamcrest/OCHamcrest.git```<br>
+2=> add OCHamcrest to targets<br>
+3=> add static lib libochamcrest.a<br>
+4=> LLVM WTF?? AAAARGH!! #FAIL<br>
+
+###Good old way
+1. Download binaries
+2. Add OCHamcrestIOS Framework
+
+###Then
+Add:
+
+    #define HC_SHORTHAND
+    #import <OCHamcrestIOS/OCHamcrestIOS.h>
+
+]
+---
+template: inverse
+
+#OCMockito
+---
 .left-column[
   ## What? 
+.footnote[OCMockito]
 ]
 .right-column[
-BDD-style testing using Objective-C
+Objective-C implementation of Mockito from Java<br><br>
 
-Bruker OCHamcrest
+Override, override
+```objectivec
+Mercedes *mercedes = mock([Mercedes class]);
+
+[given([mercedes numberOfWheels]) willReturn:@0];
+
+assertThat(mercedes, isNot(hasWheels()));
+```
+Nice, No Exceptions ma!
+```objectivec
+
+NSArray *mockArray = mock([NSArray class]);
+
+[given([mockArray objectAtIndex:0]) willReturn:@"first"];
+// prints "(null)" because objectAtIndex:999 was not stubbed
+NSLog(@"%@", [mockArray objectAtIndex:999]);
+```
 ]
-    </textarea>
+---
+.left-column[
+  ## What?
+  ## Syntax? 
+.footnote[OCMockito]
+]
+.right-column[
+Verify, verify, verify
+```objectivec
+// using mock
+[mockArray addObject:@"once"];
+
+[mockArray addObject:@"twice"];
+[mockArray addObject:@"twice"];
+
+// the following two verifications work exactly the same
+[verify(mockArray) addObject:@"once"];
+[verifyCount(mockArray, times(1)) addObject:@"once"];
+
+// verify exact number of invocations
+[verifyCount(mockArray, times(2)) addObject:@"twice"];
+[verifyCount(mockArray, times(3)) addObject:@"three times"];
+
+// verify using never(), which is an alias for times(0)
+[verifyCount(mockArray, never()) addObject:@"never happened"];
+
+// verify using atLeast
+[verifyCount(mockArray, atLeastOnce()) addObject:@"at least once"];
+[verifyCount(mockArray, atLeast(2)) addObject:@"at least twice"];
+```
+]
+---
+.left-column[
+  ## What?
+  ## Syntax? 
+.footnote[OCMockito]
+]
+.right-column[
+OCHamcrest
+```objectivec
+// mock creation
+NSMutableArray *mockArray = mock([NSMutableArray class]);
+
+// using mock object
+[mockArray removeObject:@"This is a test"];
+
+// verification
+[verify(mockArray) removeObject:startsWith(@"This is")];
+```
+```objectivec
+NSString *string = mock([NSString class]);
+
+[given([string componentsSeparatedByString:@","]) 
+                             willReturn:@[@"Hello"]];
+
+NSArray *arrayMocked = [string componentsSeparatedByString:@","];
+NSArray *arrayNicelyNull = [string componentsSeparatedByString:@" "];
+
+assertThat(arrayMocked, hasCount(equalToUnsignedInt(1)));
+assertThat(arrayNicelyNull, nilValue());
+```
+]
+---
+.left-column[
+  ## What?
+  ## Syntax? 
+  ## Add? 
+.footnote[OCMockito]
+]
+.right-column[
+Look at slides for OCHamcrest
+]
+---
+template: inverse
+
+# Cedar BDD
+---
+BDD-style testing using Objective-C
+OCHamcrest
+```objectivec
+assertThat(aString, equalTo(@"something"));
+assertThatInt(anInteger, equalToInt(7));
+assertThatInt(anInteger, isNot(equalToInt(9)));
+assertThatBool(aBoolean, equalTo(YES));
+```
+Cedar BDD
+```objectivec
+expect(aString).to(equal(@"something"));
+expect(anInteger).to(equal(7));
+expect(anInteger).to_not(equal(9));
+expect(aBoolean).to(equal(YES));
+```
+---
+And ?
+```
+SPEC_BEGIN(FooSpecs)
+
+sharedExamplesFor(@"a similarly-behaving thing", ^(NSDictionary *context) {
+    it(@"should do something common", ^{
+        ...
+    });
+});
+
+describe(@"Something that shares behavior", ^{
+    itShouldBehaveLike(@"a similarly-behaving thing");
+});
+
+describe(@"Something else that shares behavior", ^{
+    itShouldBehaveLike(@"a similarly-behaving thing");
+});
+
+SPEC_END
+```
+---
+template: inverse
+
+#Klee
+Legacy code testing.
+Find input values for tests.
+---
+template: inverse
+
+#KIF
+Functional testing with Objective C
+---
+template: inverse
+
+#Frank
+Cucumber for iOS
+---
+template: inverse
+
+#Monkeytalk
+Functional testing with recording.
+
+Monkeytalk IDE
+---
+template: inverse
+
+#Jenkins integration
+Plugins and how-to
+---
+</textarea>
     <div id="slideshow"></div>
   </body>
 </html>

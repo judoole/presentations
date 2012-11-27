@@ -27,6 +27,7 @@
 
 - (void)test_numbers {
     assertThat(@3, allOf(greaterThan(@2), lessThan(@10), nil));
+    assertThat(@3, isNot(allOf(greaterThan(@10), lessThan(@0), nil)));
 }
 
 - (void)test_arrays {
@@ -43,6 +44,9 @@
     Vehicle *car = [[Mercedes alloc] init];
     Vehicle *boat = [[Speedboat alloc] init];
 
+    assertThat(car, hasProperty(@"numberOfWheels", greaterThan(@0)));
+
+    //Nicer?
     assertThat(car, hasWheels());
     assertThat(boat, isNot(hasWheels()));
 }

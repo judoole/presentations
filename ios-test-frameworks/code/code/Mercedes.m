@@ -20,6 +20,8 @@
 
     return self;
 }
-
+- (NSString *)description {
+    return [NSString stringWithFormat: @"Mercedes: Name=%@, NumberOfWheels=%@", [self name], [self numberOfWheels]];
+}
 
 @end

@@ -1,10 +1,7 @@
 #import "HasWheelsMatcher.h"
-
 #import <OCHamcrest/HCDescription.h>
 
-
 @implementation HasWheelsMatcher
-
 + (id)hasWheels {
     return [[self alloc] init];
 }
@@ -16,7 +13,6 @@
 - (void)describeTo:(id <HCDescription>)description {
     [description appendText:@"wheels on Vehicle"];
 }
-
 @end
 
 id <HCMatcher> hasWheels() {
