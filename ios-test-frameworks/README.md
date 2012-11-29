@@ -8,9 +8,8 @@ Frameworks that tingled my interest:
 * [Klee](http://klee.llvm.org/)
 * [KIF](https://github.com/square/KIF)
 * [Frank](http://testingwithfrank.com/)
-* [FoneMonkey](https://www.gorillalogic.com/book/fonemonkey-setup-guide)
+* [MonkeyTalk](http://www.gorillalogic.com/monkeytalk)
 * Jenkins plugins
 
+Take it for a spin at [judoole.github.com/presentations/ios-test-frameworks/](http://judoole.github.com/presentations/ios-test-frameworks/)
 The presentaion is written with [remark.js](https://github.com/gnab/remark).
-
-And it's in norwegian.
