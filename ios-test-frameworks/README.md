@@ -1,4 +1,4 @@
-Wanted to learn some not-so-popular frameworks for ios-testing so I made this presentation.
+Wanted to learn some frameworks to held drive TDD in iOS
 
 Frameworks that tingled my interest:
 
@@ -10,6 +10,9 @@ Frameworks that tingled my interest:
 * [Frank](http://testingwithfrank.com/)
 * [MonkeyTalk](http://www.gorillalogic.com/monkeytalk)
 * Jenkins plugins
+* [CoverStory](http://code.google.com/p/coverstory/)
+* [govcr](https://software.sandia.gov/trac/fast/wiki/gcovr)
+* [lcov](http://ltp.sourceforge.net/coverage/lcov.php)
 
 Take it for a spin at [judoole.github.com/presentations/ios-test-frameworks/](http://judoole.github.com/presentations/ios-test-frameworks/)
 The presentaion is written with [remark.js](https://github.com/gnab/remark).
