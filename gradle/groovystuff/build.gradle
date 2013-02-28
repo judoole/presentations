@@ -23,6 +23,23 @@ task html <<{
 }
 
 task closure <<{
-	def printSum = { a, b -> print a + b}
+	def printSum = { a, b -> println a + b}
 	printSum(2, 50000)
+
+	//Implicit variables
+	def singlearg = { println it }
+	singlearg( "All the single ladies" )
+
+	//As method arguments
+	def list = ['a','b','c','d']
+	def newList = []
+
+	def clos = { it.toUpperCase() }
+	list.collect( newList, clos )
+
+	println newList
+
+	//Closures in list
+	def ninjaweapons = [ "Shuriken", "Katana", "Foot spikes", "Nunchucks", "Sai", "Katana" ];
+	ninjaweapons.each() { print " ${it}" };
 }
