@@ -1,3 +1,5 @@
+defaultTasks 'greet'
+
 class Greet {
   def name
   Greet(who) { name = who[0].toUpperCase() + who[1..-1] }
@@ -44,17 +46,69 @@ task closure <<{
 	ninjaweapons.each() { print " ${it}" };
 }
 
-task spread <<{
-	def should_be_in_caps = ["beer", "time"]
-	println should_be_in_caps*.toUpperCase();
+task spread{
+	description = "The Spread Operator is used to invoke an action on all items of an aggregate object."
+	doLast{
+		def should_be_in_caps = ["beer", "time"]
+		println should_be_in_caps*.toUpperCase();
+	}
 }
 
 
-task elvis <<{
-	def elvisImpersonator
-	def displayName = elvisImpersonator ? elvisImpersonator : "Anonymous" //traditional ternary operator usage
+task elvis {
+	description = "Nicer ternary operator ()"
+	doLast{
+		def elvisImpersonator
+		def displayName = elvisImpersonator ? elvisImpersonator : "Anonymous" //traditional ternary operator usage
 	
-	displayName = elvisImpersonator ?: "Anonymous"  // more compact Elvis operator - does same as above
+		displayName = elvisImpersonator ?: "Anonymous"  // more compact Elvis operator - does same as above
 
-	println "Elvis-name ${displayName}"
+		println "Elvis-name ${displayName}"
+	}
+}
+
+class User{
+	def Address address	
+}
+class Address{
+	def street
+}
+
+task safenav{
+	description = 'Safe Navigation Operator'
+
+	doLast{
+		def user = new User()
+		println user?.address?.street //Zero NPE here
+	}		
+}
+
+task spaceship{
+	description = "The Spaceship operator <=>"
+
+	doLast{
+		println "5 <=> 5000 => " + (5<=>50000)
+	}
+}
+
+task linebreaks{
+	description = "Strings with lines solved by '''"
+	doLast{
+		def kingstory = '''
+			Once upon a time
+			In the kingdom of Longfeathers
+			Lived a cow
+		'''
+		
+		println kingstory
+	}
+}
+
+task regex{
+	description = "Regex done this way =~"
+	
+	doLast{
+		println '"cheesecheese" =~ "cheese" = ' + "cheesecheese" =~ "cheese"
+		assert "cheesecheese" =~ "cheese"
+	}
 }
