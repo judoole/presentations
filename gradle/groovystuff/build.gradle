@@ -7,43 +7,52 @@ class Greet {
   def salute() { println "Hello $name!" }
 }
 
-task greet <<{
-	new Greet('John').salute()
+task useclass {
+	description = "Greet a class we just made "
+	doLast{
+		new Greet('Longfeathers').salute()
+	}
 }
 
-task html <<{
-	def builder = new groovy.xml.MarkupBuilder()
-	builder.html {
-		head {
-			title"Heavyweight title of the world"
-		}
-		body {
-			p"Belonged to the body of Mike Tyson"
-			a(href:"http://www.youtube.com/watch?v=7FgS3kCv79I", "See for yourself")
+task html{
+	description = "Create a html bang in code"
+	doLast{
+		def builder = new groovy.xml.MarkupBuilder()
+		builder.html {
+			head {
+				title"Heavyweight title of the world"
+			}
+			body {
+				p"Belonged to the body of Mike Tyson"
+				a(href:"http://www.youtube.com/watch?v=7FgS3kCv79I", "See for yourself")
+			}
 		}
 	}
 }
 
-task closure <<{
-	def printSum = { a, b -> println a + b}
-	printSum(2, 50000)
+task closure{
+	description = "Some closures"
+	doLast{
+		def printSum = { a, b -> println a + b}
+		printSum(2, 50000)
 
-	//Implicit variables
-	def singlearg = { println it }
-	singlearg( "All the single ladies" )
+		//Implicit variables
+		def singlearg = { println it }
+		singlearg( "All the single ladies" )
 
-	//As method arguments
-	def list = ['a','b','c','d']
-	def newList = []
+		//As method arguments
+		def list = ['a','b','c','d']
+		def newList = []
 
-	def clos = { it.toUpperCase() }
-	list.collect( newList, clos )
+		def clos = { it.toUpperCase() }
+		list.collect( newList, clos )
 
-	println newList
+		println newList
 
-	//Closures in list
-	def ninjaweapons = [ "Shuriken", "Katana", "Foot spikes", "Nunchucks", "Sai", "Katana" ];
-	ninjaweapons.each() { print " ${it}" };
+		//Closures in list
+		def ninjaweapons = [ "Shuriken", "Katana", "Foot spikes", "Nunchucks", "Sai", "Katana" ];
+		ninjaweapons.each() { print " ${it}" };
+	}
 }
 
 task spread{
@@ -101,6 +110,21 @@ task linebreaks{
 		'''
 		
 		println kingstory
+	}
+}
+
+task stringmethod{
+	description = "String can contain variables and methods"
+	doLast{
+		def kingdom = "Norway"
+
+		def kingstory = """
+			Once upon ${new Date()}
+			In the kingdom of $kingdom
+			Lived a cow
+		"""
+		
+		println kingstory	
 	}
 }
 
