@@ -11,9 +11,16 @@ dependencies {
 }
 
 task greet {
-    description = "Greet a class we just made "
-    doLast{
+    description = "A simple greet from a simple Greet.groovy"
+    doLast {
         new Greet('Longfeathers').salute()
+    }
+}
+
+task greeting(type: GreetingTask) {
+    description = "Using a custom Gradle task"
+    doLast{
+        greeting = 'greetings from GreetingTask'
     }
 }
 
