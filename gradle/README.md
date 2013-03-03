@@ -9,6 +9,7 @@ TODO:
     * apply plugin: 'java'
     * maven-repo
     * maven2Gradle
+    * maven-pom
     * upload-archives
     * create pom
     * doFirst, doLast

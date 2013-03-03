@@ -1,35 +1,101 @@
 <!DOCTYPE html>
-<meta charset="utf-8">
+<meta charset="utf-8" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html"
+      xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
 <title>Gradle</title>
+<link href="html-assets/rainbow/tomorrow-night.css" rel="stylesheet">
 <style>
 
-    @import url(stack.css);
+    @import url(html-assets/stack.css);
 
-    .big {
-        font-size: 128px;
+    pre,
+    code {
+        font-family: 'Monaco';
+        font-size: 32px;
     }
 
-    .caption {
-        font-size: 96px;
-        text-align: center;
-        text-shadow: 0px 2px 6px rgba(0, 0, 0, .5);
+    .small code{
+        font-size: 28px;
     }
 
 </style>
 <body class="overview">
 
 <section>
-    <p><b>Gradle</b></p>
+    <h1>Gradle</h1>
+
     <p>The Maven Killer</p>
 </section>
 
 <section>
     <p>Version 1.4</p>
+
+    <p class="grey"><a href="https://github.com/gradle/gradle">github.com/gradle/gradle</a></p>
 </section>
 
 <section>
-    <p>Java, Groovy, Scala</p>
+    <h1>Java, Groovy, Scala</h1>
 </section>
 
-<script src="d3.v2.js?2.7.3"></script>
-<script src="stack.v0.js"></script>
+<section>
+    <h1>brew install gradle</h1>
+
+    <p class="grey">"Optional"</p>
+</section>
+
+<section>
+    <p>Java-prosjekt enkelt som å lage fila </br>
+        <b>build.gradle</b> med innholdet</p>
+
+    <p class="grey">apply plugin: 'java'</p>
+</section>
+
+<section>
+    <h1>cmd> gradle tasks</h1>
+</section>
+
+<section>
+    <p>enough with the madness </br>
+        <b>demo it</b></p>
+
+    <p class="grey">cue NoCommons maven2Gradle</p>
+</section>
+
+<section>
+    <p>Platform independent med</br>
+        <b>gradlew</b></p>
+
+    <pre><code data-language="java">task wrapper(type: Wrapper) {
+    gradleVersion = '1.4'
+}</code></pre>
+</section>
+
+<section>
+    <p>High five, down below, <b>too slow</b></p>
+
+    <pre><code class="small" data-language="shell">export GRADLE_OPTS="-Dorg.gradle.daemon=true"</code></pre>
+</section>
+
+<section>
+    <p><b>Added maven-bonuses</b></p>
+    <p>- Generer pom.xml (nicely)</br>
+    - Upload til Nexus, Artifactory</p>
+</section>
+
+<section>
+    <p>Hvorfor begynte du med Gradle Longfeathers?</p>
+</section>
+
+<section>
+    <p>Hvorfor begynte du med Gradle Longfeathers?</p>
+    <p class="grey">- maven scm</br>
+    - Flex (gradlefx plugin)</br>
+    - Deployscript til Enonic </br>
+    - Overbygg på Ant-script (Gradle elsker Ant)</p>
+</section>
+
+<script src="html-assets/d3.v2.js?2.7.3"></script>
+<script src="html-assets/stack.v0.js"></script>
+<script src="html-assets/rainbow/rainbow.js"></script>
+<script src="html-assets/rainbow/generic.js"></script>
+<script src="html-assets/rainbow/java.js"></script>
+<script src="html-assets/rainbow/shell.js"></script>

@@ -10,3 +10,10 @@ dependencies {
     testCompile 'org.codehaus.groovy:groovy-all:2.0.5'
 }
 
+task greet {
+    description = "Greet a class we just made "
+    doLast{
+        new Greet('Longfeathers').salute()
+    }
+}
+
