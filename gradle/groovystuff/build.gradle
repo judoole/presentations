@@ -1,4 +1,4 @@
-defaultTasks 'greet'
+defaultTasks 'useclass'
 
 class Greet {
   def name
