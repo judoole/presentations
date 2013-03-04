@@ -77,7 +77,7 @@ task safenav{
 }
 
 task spaceship{
-	description = "The Spaceship operator <=>"
+	description = "The Spaceship operator <=> for comparing"
 
 	doLast{
 		println "5 <=> 5000 => " + (5<=>50000)

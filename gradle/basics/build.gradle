@@ -19,15 +19,26 @@ task greet {
 
 task greeting(type: GreetingTask) {
     description = "Using a custom Gradle task"
-    doLast{
+    doLast {
         greeting = 'greetings from GreetingTask'
+    }
+}
+
+task executenative {
+    description = "Run some native function"
+    doLast {
+        new ByteArrayOutputStream().withStream { os ->
+            def result = exec {
+                executable = 'whoami'
+            }
+            println os.toString()
+        }
     }
 }
 
 //
 //The DAG (Directed acyclic graph)
 //
-
 task distribution << {
     println "We build the zip with version=$version"
 }
@@ -36,7 +47,7 @@ task release(dependsOn: 'distribution') << {
     println 'We release now'
 }
 
-gradle.taskGraph.whenReady {taskGraph ->
+gradle.taskGraph.whenReady { taskGraph ->
     if (taskGraph.hasTask(release)) {
         version = '1.0'
     } else {

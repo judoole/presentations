@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <meta charset="utf-8" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html"
-      xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+      xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html"
+      xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html"
+      xmlns="http://www.w3.org/1999/html">
 <title>Gradle</title>
 <link href="html-assets/rainbow/tomorrow-night.css" rel="stylesheet">
 <style>
@@ -13,15 +15,42 @@
         font-size: 32px;
     }
 
-    .small code{
+    .small code {
         font-size: 28px;
+    }
+
+    .biggest, h1{
+        font-size: 128px;
+    }
+    .bigger {
+        font-size: 64px;
+    }
+
+    h1{
+        width:100%;
+        height:70%;
+
+        /* Firefox */
+        display:-moz-box;
+        -moz-box-pack:center;
+        -moz-box-align:center;
+
+        /* Safari, Opera, and Chrome */
+        display:-webkit-box;
+        -webkit-box-pack:center;
+        -webkit-box-align:center;
+
+        /* W3C */
+        display:box;
+        box-pack:center;
+        box-align:center;
     }
 
 </style>
 <body class="overview">
 
 <section>
-    <h1>Gradle</h1>
+    <p class="biggest">Gradle</p>
 
     <p>The Maven Killer</p>
 </section>
@@ -33,11 +62,11 @@
 </section>
 
 <section>
-    <h1>Java, Groovy, Scala, (Flex)</h1>
+    <p class="bigger">Java, Groovy, Scala, (Flex)</p>
 </section>
 
 <section>
-    <h1>brew install gradle</h1>
+    <p class="bigger">brew install gradle</p>
 
     <p class="grey">"Optional"</p>
 </section>
@@ -70,27 +99,49 @@
 </section>
 
 <section>
-    <p>High five, down below, <b>too slow</b></p>
+    <p>High five, down below, <b class="bigger">too slow</b></p>
 
     <pre><code class="small" data-language="shell">export GRADLE_OPTS="-Dorg.gradle.daemon=true"</code></pre>
 </section>
 
 <section>
+    <p>shortcut det med <b class="bigger">'cmd>gradle ht'</b></br>
+        same, same as <b class="bigger">'cmd>gradle html'</b></p>
+</section>
+
+<section>
     <p>Hvorfor begynte du med Gradle Longfeathers?</p>
 </section>
 
 <section>
     <p>Hvorfor begynte du med Gradle Longfeathers?</p>
+
     <p class="grey">- maven scm</br>
-    - Flex (gradlefx plugin)</br>
-    - Deployscript til Enonic </br>
-    - Overbygg på Ant-script (Gradle elsker Ant)</p>
+        - Flex (gradlefx plugin)</br>
+        - Deployscript til Enonic </br>
+        - Overbygg på Ant-script (Gradle elsker Ant)</p>
 </section>
 
 <section>
-    <p><b>Added maven-bonuses</b></p>
-    <p>- Generer pom.xml (nicely)</br>
-        - Upload til Nexus, Artifactory</p>
+    <p>Hvorfor begynte du med Gradle Longfeathers?</p>
+
+    <p class="grey">- maven scm</br>
+        - Flex (gradlefx plugin)</br>
+        - Deployscript til Enonic </br>
+        - Overbygg på Ant-script (Gradle elsker Ant)</p>
+</section>
+
+<section>
+    <pre><code data-language="html">
+<rant>
+    <phases></phases>
+    <updates></updates>
+    <versions></versions>
+    <the-path></the-path>
+    <slooooow></slooooow>
+    <xml>hell</xml>
+</rant>
+    </code></pre>
 </section>
 
 <section>
@@ -108,6 +159,51 @@ uploadArchives {
 }</code></pre>
 </section>
 
+<section>
+    <p>enough with the madness</br>
+    cue more demo. the basics</p>
+
+    <p class="grey">Src: Java, Test: Groovy</br>
+    Groovy class, Tasks, DAG</p>
+</section>
+
+<section>
+    <p>More, more, more</p>
+
+    <p class="biggest">Groovy!</p>
+</section>
+
+<section>
+    <p>where now?</p>
+</section>
+
+<section>
+    <p>plugins, plugins, plugins</br>
+    eller exec that shit</p>
+</section>
+
+<section>
+    <p>Cucumber download wips?</p>
+</section>
+
+<section>
+    <pre><code data-language="java" class="small">
+task featurebranch <<{
+    //do some git branching
+    //do some push branch remote
+    //do some create jenkins jobs
+    //do some heroku-like-make-dyno
+}</code></pre>
+</section>
+
+<section>
+    <p>Men aller mest</br>
+    put some groove into my build</p>
+</section>
+
+<section>
+    <h1>?</h1>
+</section>
 
 <script src="html-assets/d3.v2.js?2.7.3"></script>
 <script src="html-assets/stack.v0.js"></script>
@@ -115,3 +211,4 @@ uploadArchives {
 <script src="html-assets/rainbow/generic.js"></script>
 <script src="html-assets/rainbow/java.js"></script>
 <script src="html-assets/rainbow/shell.js"></script>
+</body>

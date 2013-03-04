@@ -4,9 +4,6 @@ TODO:
 
 * Basics
     * clean cache
-    * maven-repo
-    * upload-archives
-    * create pom
     * doFirst, doLast
     * Ant tasks
     * tasks
