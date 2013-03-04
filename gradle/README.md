@@ -3,19 +3,12 @@
 TODO:
 
 * Basics
-    * gradlew
-    * daemon
     * clean cache
-    * apply plugin: 'java'
     * maven-repo
-    * maven2Gradle
-    * maven-pom
     * upload-archives
     * create pom
     * doFirst, doLast
-    * Convert from Maven
     * Ant tasks
-    * DAG
     * tasks
     * copyTask (from doc)
     * task - up to date

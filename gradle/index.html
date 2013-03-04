@@ -33,7 +33,7 @@
 </section>
 
 <section>
-    <h1>Java, Groovy, Scala</h1>
+    <h1>Java, Groovy, Scala, (Flex)</h1>
 </section>
 
 <section>
@@ -76,12 +76,6 @@
 </section>
 
 <section>
-    <p><b>Added maven-bonuses</b></p>
-    <p>- Generer pom.xml (nicely)</br>
-    - Upload til Nexus, Artifactory</p>
-</section>
-
-<section>
     <p>Hvorfor begynte du med Gradle Longfeathers?</p>
 </section>
 
@@ -91,6 +85,27 @@
     - Flex (gradlefx plugin)</br>
     - Deployscript til Enonic </br>
     - Overbygg på Ant-script (Gradle elsker Ant)</p>
+</section>
+
+<section>
+    <p><b>Added maven-bonuses</b></p>
+    <p>- Generer pom.xml (nicely)</br>
+        - Upload til Nexus, Artifactory</p>
+</section>
+
+<section>
+    <pre><code data-language="java" class="small">apply plugin: 'maven'
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: "file://localhost/tmp/")
+            pom.version = '0.6'
+            pom.artifactId = 'nocommons'
+            pom.groupId = this.group
+        }
+    }
+}</code></pre>
 </section>
 
 
