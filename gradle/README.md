@@ -1,36 +1,9 @@
 # Presentation on Gradle with code examples
 
-TODO:
+Oneliner for converting Maven-project to Gradle and all test classes converted to Groovy:
 
-* Basics
-    * clean cache
-    * doFirst, doLast
-    * Ant tasks
-    * tasks
-    * copyTask (from doc)
-    * task - up to date
-    * Create Plugins
-    * IntelliJ. JetGradle
-    * Reuse groovycode from project?
-* Groovy
-    * brew install groovy
-    * Groovy Builders. Moonexample?
-    * groovysh
-* Cucumber
-    * wget wip features from url and run
-* Scala
+echo "apply plugin: 'maven2Gradle'">build.gradle && gradle maven2Gradle && echo "apply plugin: 'groovy'\n$(cat build.gradle)" > build.gradle && git mv src/test/java src/test/groovy && find src/test -type f -name "*.java" |sed 's;\.java;;g' |xargs -I % git mv %.java %.groovy
 
-Notes to myself:
-Modules
-Plugin
 
-GRADLE_OPTS JAVA_OPTS
-Dynamic tasks
-TDD?
-codecompletion på cmd? *nix funker
-vim highlighting ?
-Groovykode i tester kan gjenbrukes?
-Lister type [1...40]
-Kjør shell-funksjoner
-Pipe resultat av funk til ny funksjon?
+Unfortunately missing adding of dependency **testCompile 'org.codehaus.groovy:groovy-all:2.0.5'**
 
